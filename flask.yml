@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sndflask-docker
+  labels:
+    name: sndflask-docker
+spec:
+  containers:
+  - image: k8master.net1.sdlab.oraclevcn.com:5000/flask-docker
+    imagePullPolicy: Always
+    name: sndflask-docker
+    ports:
+    - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: sndflask-docker-service
+  name: sndflask-docker-service
+spec:
+  ports:
+  - nodePort: 32001
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    name: sndflask-docker
+  type: NodePort
