@@ -1,7 +1,11 @@
 from flask import Flask
 app = Flask(__name__)
+
+
 @app.route("/")
 def hello():
-	return "IBM team, we are testing using Docker for development"
+    return "Hello team, we are testing using Docker for development"
+
+
 if __name__ == "__main__":
-	app.run(host="0.0.0.0", debug=True, port=8000)
+    app.run(host="0.0.0.0", debug=True, port=8000)
