@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello team NCR, we are testing using Docker for development"
+    return "Hello NCR lab, we are testing using Docker for development"
 
 
 if __name__ == "__main__":
